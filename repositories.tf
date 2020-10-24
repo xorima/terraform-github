@@ -18,7 +18,7 @@ module "labelvalidator" {
   dockerhub_config           = local.dockerhub_config
   label_validator_config     = local.label_validator_config
   json_version_bumper_config = local.json_version_bumper_config
-  # release_creator_config = release_creator_config
+  release_creator_config     = local.release_creator_config
   providers = {
     github              = github
     github.collaborator = github.xorimabot
@@ -32,7 +32,7 @@ module "json_version_bumper" {
   dockerhub_config           = local.dockerhub_config
   label_validator_config     = local.label_validator_config
   json_version_bumper_config = local.json_version_bumper_config
-  # release_creator_config = release_creator_config
+  release_creator_config     = local.release_creator_config
   providers = {
     github              = github
     github.collaborator = github.xorimabot
@@ -47,7 +47,7 @@ module "release_creator" {
   dockerhub_config           = local.dockerhub_config
   label_validator_config     = local.label_validator_config
   json_version_bumper_config = local.json_version_bumper_config
-  # release_creator_config = release_creator_config
+  release_creator_config     = local.release_creator_config
   providers = {
     github              = github
     github.collaborator = github.xorimabot
@@ -62,7 +62,7 @@ module "github-label-manager" {
   dockerhub_config           = local.dockerhub_config
   label_validator_config     = local.label_validator_config
   json_version_bumper_config = local.json_version_bumper_config
-  # release_creator_config = release_creator_config
+  release_creator_config     = local.release_creator_config
   providers = {
     github              = github
     github.collaborator = github.xorimabot
@@ -76,7 +76,7 @@ module "github-cookstyle-runner" {
   dockerhub_config           = local.dockerhub_config
   label_validator_config     = local.label_validator_config
   json_version_bumper_config = local.json_version_bumper_config
-  # release_creator_config = release_creator_config
+  release_creator_config     = local.release_creator_config
   providers = {
     github              = github
     github.collaborator = github.xorimabot
@@ -91,7 +91,7 @@ module "github-file-manager" {
   dockerhub_config           = local.dockerhub_config
   label_validator_config     = local.label_validator_config
   json_version_bumper_config = local.json_version_bumper_config
-  # release_creator_config = release_creator_config
+  release_creator_config     = local.release_creator_config
   providers = {
     github              = github
     github.collaborator = github.xorimabot
