@@ -1,3 +1,7 @@
+provider "github" {
+  alias "collaborator"
+}
+
 resource "github_repository" "repository" {
   name        = var.name
   description = var.description
@@ -22,6 +26,6 @@ resource "github_repository_collaborator" "xorimabot" {
 
 
 resource "github_user_invitation_accepter" "xorimabot" {
-  provider      = "github.xorimabot"
+  provider      = "github.collaborator"
   invitation_id = github_repository_collaborator.xorimabot.invitation_id
 }
