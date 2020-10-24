@@ -39,6 +39,22 @@ module "json_version_bumper" {
   }
 }
 
+
+module "release_creator" {
+  source                     = "./modules/repository"
+  name                       = "release_creator"
+  description                = "Consumes github webhooks and creates releases from tags and changelog. Comments on the merged PR with the new version number"
+  dockerhub_config           = local.dockerhub_config
+  label_validator_config     = local.label_validator_config
+  json_version_bumper_config = local.json_version_bumper_config
+  # release_creator_config = release_creator_config
+  providers = {
+    github              = github
+    github.collaborator = github.xorimabot
+  }
+}
+
+
 module "github-label-manager" {
   source                     = "./modules/repository"
   name                       = "github-label-manager"
