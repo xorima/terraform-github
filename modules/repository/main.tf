@@ -91,7 +91,7 @@ resource "github_repository_webhook" "json_version_bumper" {
 
   active = true
 
-  events = ["releases"]
+  events = ["release"]
 }
 
 resource "github_repository_webhook" "release_creator" {
