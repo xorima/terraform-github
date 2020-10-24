@@ -4,3 +4,9 @@ variable "name" {
 variable "description" {
   description = "Repository Description"
 }
+
+variable "label_validator_config" {
+  default = {
+    enabled = false
+  }
+}
