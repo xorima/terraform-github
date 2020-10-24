@@ -15,7 +15,7 @@ resource "github_repository" "repository" {
   allow_rebase_merge     = true
   delete_branch_on_merge = true
   has_downloads          = false
-  auto_init              = var.auto_init
+  auto_init              = true
 
 }
 
@@ -26,6 +26,6 @@ resource "github_repository_collaborator" "xorimabot" {
 
 
 resource "github_user_invitation_accepter" "xorimabot" {
-  provider      = "github.collaborator"
+  provider      = github.collaborator
   invitation_id = github_repository_collaborator.xorimabot.invitation_id
 }
