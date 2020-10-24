@@ -23,5 +23,5 @@ resource "github_repository_collaborator" "xorimabot" {
 
 resource "github_user_invitation_accepter" "xorimabot" {
   provider      = "github.xorimabot"
-  invitation_id = "${github_repository_collaborator.xorimabot.invitation_id}"
+  invitation_id = github_repository_collaborator.xorimabot.invitation_id
 }
