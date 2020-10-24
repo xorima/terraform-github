@@ -1,6 +1,6 @@
 resource "github_repository" "repository" {
-  name         = var.name
-  description  = var.description
+  name        = var.name
+  description = var.description
 
   visibility             = "public"
   has_issues             = true
@@ -11,7 +11,7 @@ resource "github_repository" "repository" {
   allow_rebase_merge     = true
   delete_branch_on_merge = true
   has_downloads          = false
-  auto_init = var.auto_init
+  auto_init              = var.auto_init
 
 }
 
