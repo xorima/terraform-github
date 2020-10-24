@@ -42,3 +42,51 @@ resource "github_actions_secret" "docker_password" {
   plaintext_value = var.dockerhub_config.password
   count           = var.dockerhub_config.enabled ? 1 : 0
 }
+
+resource "github_repository_webhook" "label_validator" {
+  repository = github_repository.repository.name
+  count      = var.label_validator_config.enabled ? 1 : 0
+
+  configuration {
+    url          = var.label_validator_config.url
+    content_type = "form"
+    insecure_ssl = false
+    secret       = var.label_validator_config.secret
+  }
+
+  active = true
+
+  events = ["pull_request"]
+}
+
+resource "github_repository_webhook" "json_version_bumper" {
+  repository = github_repository.repository.name
+  count      = var.json_version_bumper_config.enabled ? 1 : 0
+
+  configuration {
+    url          = var.json_version_bumper_config.url
+    content_type = "form"
+    insecure_ssl = false
+    secret       = var.json_version_bumper_config.secret
+  }
+
+  active = true
+
+  events = ["releases"]
+}
+
+resource "github_repository_webhook" "release_creator" {
+  repository = github_repository.repository.name
+  count      = var.release_creator_config.enabled ? 1 : 0
+
+  configuration {
+    url          = var.release_creator_config.url
+    content_type = "form"
+    insecure_ssl = false
+    secret       = var.release_creator_config.secret
+  }
+
+  active = true
+
+  events = ["pull_request"]
+}

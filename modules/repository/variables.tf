@@ -10,3 +10,21 @@ variable "dockerhub_config" {
     enabled = false
   }
 }
+
+variable "label_validator_config" {
+  default = {
+    enabled = false
+  }
+}
+
+variable "json_version_bumper_config" {
+  default = {
+    enabled = false
+  }
+}
+
+variable "release_creator_config" {
+  default = {
+    enabled = false
+  }
+}
