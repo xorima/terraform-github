@@ -1,5 +1,5 @@
 provider "github" {
-  alias "collaborator"
+  alias = "collaborator"
 }
 
 resource "github_repository" "repository" {
