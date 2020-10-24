@@ -11,7 +11,7 @@ provider "github" {
 }
 
 locals {
-  label_validator_config = {
+  dockerhub_config = {
     docker_username = var.docker_username
     docker_password = var.docker_password
     enabled         = true
