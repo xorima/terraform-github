@@ -20,7 +20,7 @@ resource "github_repository" "repository" {
 }
 
 resource "github_repository_collaborator" "xorimabot" {
-  repository = var.name
+  repository = github_repository.repository.name
   username   = "xorimabot"
 }
 
