@@ -8,3 +8,10 @@ variable "docker_username" {
 }
 variable "docker_password" {
 }
+locals {
+  dockerhub_config = {
+    username = var.docker_username
+    password = var.docker_password
+    enabled  = true
+  }
+}
