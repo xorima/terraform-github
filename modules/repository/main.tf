@@ -59,6 +59,25 @@ resource "github_repository_webhook" "label_validator" {
   events = ["pull_request"]
 }
 
+resource "github_issue_label" "release_major" {
+  count      = var.label_validator_config.enabled ? 1 : 0
+  repository = github_repository.repository.name
+  name       = "Release: Major"
+  color      = "FFC0CB"
+}
+resource "github_issue_label" "release_minor" {
+  count      = var.label_validator_config.enabled ? 1 : 0
+  repository = github_repository.repository.name
+  name       = "Release: Minor"
+  color      = "FF69B4"
+}
+resource "github_issue_label" "release_patch" {
+  count      = var.label_validator_config.enabled ? 1 : 0
+  repository = github_repository.repository.name
+  name       = "Release: Patch"
+  color      = "FFB6C1"
+}
+
 resource "github_repository_webhook" "json_version_bumper" {
   repository = github_repository.repository.name
   count      = var.json_version_bumper_config.enabled ? 1 : 0

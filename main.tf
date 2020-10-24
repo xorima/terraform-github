@@ -1,3 +1,13 @@
+terraform {
+  backend "remote" {
+    hostname     = "app.terraform.io"
+    organization = "xorima"
+    workspaces {
+      name = "terraform-github"
+    }
+  }
+}
+
 provider "github" {
   owner   = "Xorima"
   token   = var.github_token
