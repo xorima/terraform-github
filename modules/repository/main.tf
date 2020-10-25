@@ -109,3 +109,19 @@ resource "github_repository_webhook" "release_creator" {
 
   events = ["pull_request"]
 }
+
+resource "github_repository_webhook" "changelog_reset" {
+  repository = github_repository.repository.name
+  count      = var.changelog_reset_config.enabled ? 1 : 0
+
+  configuration {
+    url          = var.changelog_reset_config.url
+    content_type = "form"
+    insecure_ssl = false
+    secret       = var.changelog_reset_config.secret
+  }
+
+  active = true
+
+  events = ["release"]
+}

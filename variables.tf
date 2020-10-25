@@ -46,3 +46,13 @@ locals {
     enabled = true
   }
 }
+
+variable "changelog_reset_url" {}
+
+locals {
+  changelog_reset_config = {
+    url     = var.changelog_reset_url
+    secret  = var.webhook_secret_key
+    enabled = true
+  }
+}

@@ -28,3 +28,9 @@ variable "release_creator_config" {
     enabled = false
   }
 }
+
+variable "changelog_reset_config" {
+  default = {
+    enabled = false
+  }
+}
