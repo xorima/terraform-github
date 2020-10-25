@@ -1,10 +1,10 @@
-module "changelogreset" {
+module "changelog_reseter" {
   source                     = "./modules/repository"
-  name                       = "changelogreset"
+  name                       = "changelog_reseter"
   dockerhub_config           = local.dockerhub_config
   label_validator_config     = local.label_validator_config
   json_version_bumper_config = local.json_version_bumper_config
-  description                = "Reset a changelog back to ## Unreleased from a github release webhook event"
+  description                = "Resets a changelog back to the ## Unreleased heading from a github release webhook event"
   providers = {
     github              = github
     github.collaborator = github.xorimabot
