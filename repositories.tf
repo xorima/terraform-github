@@ -4,6 +4,7 @@ module "changelog_reset" {
   dockerhub_config           = local.dockerhub_config
   label_validator_config     = local.label_validator_config
   json_version_bumper_config = local.json_version_bumper_config
+  release_creator_config     = local.release_creator_config
   description                = "Resets a changelog back to the ## Unreleased heading from a github release webhook event"
   providers = {
     github              = github
