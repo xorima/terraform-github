@@ -1,3 +1,19 @@
+module "cookbook_release_creator" {
+  source                     = "./modules/repository"
+  name                       = "cookbook_release_creator"
+  description                = "Creates a release in github based on the metadata.rb from a github webhook event"
+  dockerhub_config           = local.dockerhub_config
+  label_validator_config     = local.label_validator_config
+  json_version_bumper_config = local.json_version_bumper_config
+  release_creator_config     = local.release_creator_config
+  changelog_reset_config     = local.changelog_reset_config
+  changelog_validator_config = local.changelog_validator_config
+  providers = {
+    github              = github
+    github.collaborator = github.xorimabot
+  }
+}
+
 module "changelog_reset" {
   source                     = "./modules/repository"
   name                       = "changelog_reset"
