@@ -14,6 +14,22 @@ module "cookbook_release_creator" {
   }
 }
 
+module "cookbook_release_validator" {
+  source                     = "./modules/repository"
+  name                       = "cookbook_release_validator"
+  description                = "Checks that the version number in metadata.rb on the pull request is the same as the default branch"
+  dockerhub_config           = local.dockerhub_config
+  label_validator_config     = local.label_validator_config
+  json_version_bumper_config = local.json_version_bumper_config
+  release_creator_config     = local.release_creator_config
+  changelog_reset_config     = local.changelog_reset_config
+  changelog_validator_config = local.changelog_validator_config
+  providers = {
+    github              = github
+    github.collaborator = github.xorimabot
+  }
+}
+
 module "changelog_reset" {
   source                     = "./modules/repository"
   name                       = "changelog_reset"
