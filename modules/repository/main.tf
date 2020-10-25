@@ -125,3 +125,16 @@ resource "github_repository_webhook" "changelog_reset" {
 
   events = ["release"]
 }
+
+resource "github_repository_webhook" "changelog_validator" {
+  repository = github_repository.repository.name
+  count      = var.changelog_validator_config.enabled ? 1 : 0
+  configuration {
+    url          = var.changelog_validator_config.url
+    content_type = "form"
+    insecure_ssl = false
+    secret       = var.changelog_validator_config.secret
+  }
+  active = true
+  events = ["pull_request"]
+}

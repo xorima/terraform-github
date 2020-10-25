@@ -34,3 +34,9 @@ variable "changelog_reset_config" {
     enabled = false
   }
 }
+
+variable "changelog_validator_config" {
+  default = {
+    enabled = false
+  }
+}

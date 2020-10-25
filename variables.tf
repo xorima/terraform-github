@@ -56,3 +56,14 @@ locals {
     enabled = true
   }
 }
+
+variable "changelog_validator_url" {}
+
+locals {
+  changelog_validator_config = {
+    url     = var.changelog_validator_url
+    secret  = var.webhook_secret_key
+    enabled = true
+  }
+}
+
