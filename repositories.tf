@@ -5,6 +5,7 @@ module "changelog_reset" {
   label_validator_config     = local.label_validator_config
   json_version_bumper_config = local.json_version_bumper_config
   release_creator_config     = local.release_creator_config
+  changelog_reset_config     = local.changelog_reset_config
   description                = "Resets a changelog back to the ## Unreleased heading from a github release webhook event"
   providers = {
     github              = github
@@ -20,6 +21,7 @@ module "labelvalidator" {
   label_validator_config     = local.label_validator_config
   json_version_bumper_config = local.json_version_bumper_config
   release_creator_config     = local.release_creator_config
+  changelog_reset_config     = local.changelog_reset_config
   providers = {
     github              = github
     github.collaborator = github.xorimabot
@@ -34,6 +36,7 @@ module "json_version_bumper" {
   label_validator_config     = local.label_validator_config
   json_version_bumper_config = local.json_version_bumper_config
   release_creator_config     = local.release_creator_config
+  changelog_reset_config     = local.changelog_reset_config
   providers = {
     github              = github
     github.collaborator = github.xorimabot
@@ -49,6 +52,7 @@ module "release_creator" {
   label_validator_config     = local.label_validator_config
   json_version_bumper_config = local.json_version_bumper_config
   release_creator_config     = local.release_creator_config
+  changelog_reset_config     = local.changelog_reset_config
   providers = {
     github              = github
     github.collaborator = github.xorimabot
@@ -64,6 +68,7 @@ module "github-label-manager" {
   label_validator_config     = local.label_validator_config
   json_version_bumper_config = local.json_version_bumper_config
   release_creator_config     = local.release_creator_config
+  changelog_reset_config     = local.changelog_reset_config
   providers = {
     github              = github
     github.collaborator = github.xorimabot
@@ -78,6 +83,7 @@ module "github-cookstyle-runner" {
   label_validator_config     = local.label_validator_config
   json_version_bumper_config = local.json_version_bumper_config
   release_creator_config     = local.release_creator_config
+  changelog_reset_config     = local.changelog_reset_config
   providers = {
     github              = github
     github.collaborator = github.xorimabot
@@ -93,6 +99,7 @@ module "github-file-manager" {
   label_validator_config     = local.label_validator_config
   json_version_bumper_config = local.json_version_bumper_config
   release_creator_config     = local.release_creator_config
+  changelog_reset_config     = local.changelog_reset_config
   providers = {
     github              = github
     github.collaborator = github.xorimabot
