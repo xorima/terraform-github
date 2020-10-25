@@ -1,6 +1,6 @@
-module "changelog_reseter" {
+module "changelog_reset" {
   source                     = "./modules/repository"
-  name                       = "changelog_reseter"
+  name                       = "changelog_reset"
   dockerhub_config           = local.dockerhub_config
   label_validator_config     = local.label_validator_config
   json_version_bumper_config = local.json_version_bumper_config
