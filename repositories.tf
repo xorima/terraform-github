@@ -13,6 +13,22 @@ module "changelog_reset" {
   }
 }
 
+module "changelog_validator" {
+  source                     = "./modules/repository"
+  name                       = "changelog_validator"
+  description                = "Checks the changelog has a ## Unreleased section via a status check"
+  dockerhub_config           = local.dockerhub_config
+  label_validator_config     = local.label_validator_config
+  json_version_bumper_config = local.json_version_bumper_config
+  release_creator_config     = local.release_creator_config
+  changelog_reset_config     = local.changelog_reset_config
+  providers = {
+    github              = github
+    github.collaborator = github.xorimabot
+  }
+}
+
+
 module "labelvalidator" {
   source                     = "./modules/repository"
   name                       = "labelvalidator"
