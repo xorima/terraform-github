@@ -1,3 +1,19 @@
+module "cookbook_supermarket_push" {
+  source                     = "./modules/repository"
+  name                       = "cookbook_supermarket_push"
+  description                = "Pushes a cookbook source to the chef supermarket based on a github webhook event"
+  dockerhub_config           = local.dockerhub_config
+  label_validator_config     = local.label_validator_config
+  json_version_bumper_config = local.json_version_bumper_config
+  release_creator_config     = local.release_creator_config
+  changelog_reset_config     = local.changelog_reset_config
+  changelog_validator_config = local.changelog_validator_config
+  providers = {
+    github              = github
+    github.collaborator = github.xorimabot
+  }
+}
+
 module "cookbook_release_creator" {
   source                     = "./modules/repository"
   name                       = "cookbook_release_creator"
