@@ -1,7 +1,7 @@
-module "cookbook_supermarket_push" {
+module "cookbook_supermarket_uploader" {
   source                     = "./modules/repository"
-  name                       = "cookbook_supermarket_push"
-  description                = "Pushes a cookbook source to the chef supermarket based on a github webhook event"
+  name                       = "cookbook_supermarket_uploader"
+  description                = "Uploads a cookbook source to the chef supermarket based on a github webhook event"
   dockerhub_config           = local.dockerhub_config
   label_validator_config     = local.label_validator_config
   json_version_bumper_config = local.json_version_bumper_config
