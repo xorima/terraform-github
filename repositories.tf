@@ -1,6 +1,6 @@
 module "deployment_status_slack_notifier" {
   source                     = "./modules/repository"
-  name                       = "slack_notifier"
+  name                       = "deployment_status_slack_notifier"
   description                = "Posts messages to slack based on github deployment_status webhook"
   dockerhub_config           = local.dockerhub_config
   label_validator_config     = local.label_validator_config
