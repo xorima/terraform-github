@@ -193,3 +193,18 @@ module "github-file-manager" {
     github.collaborator = github.xorimabot
   }
 }
+
+module "get-iplayer" {
+  source                     = "./modules/repository"
+  name                       = "get-iplayer"
+  description                = "A repository to build docker images which hold get-iplayer"
+  dockerhub_config           = local.dockerhub_config
+  label_validator_config     = local.label_validator_config
+  release_creator_config     = local.release_creator_config
+  changelog_reset_config     = local.changelog_reset_config
+  changelog_validator_config = local.changelog_validator_config
+  providers = {
+    github              = github
+    github.collaborator = github.xorimabot
+  }
+}
